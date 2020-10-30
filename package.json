@@ -1,0 +1,30 @@
+{
+  "name": "@anymod/html",
+  "version": "0.1.0",
+  "description": "AnyMod HTML binding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anymod/anymod-html.git"
+  },
+  "keywords": [
+    "anymod"
+  ],
+  "author": "AnyMod",
+  "bugs": {
+    "url": "https://github.com/anymod/anymod-html/issues"
+  },
+  "homepage": "https://github.com/anymod/anymod-html#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-jest": "^26.6.1",
+    "babel-loader": "^8.1.0",
+    "jest": "^26.6.1",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0"
+  }
+}
