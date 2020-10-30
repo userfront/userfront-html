@@ -5,8 +5,8 @@ module.exports = {
     core: "./src/index.js",
   },
   output: {
-    path: __dirname + "/dist/bundles",
-    filename: "js/[name].bundle.js",
+    path: __dirname + "/build",
+    filename: "anymod-html.js",
   },
   module: {
     rules: [

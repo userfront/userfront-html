@@ -1,4 +1,4 @@
-import {
+const {
   prepareAll,
   processPage,
   addToCallbacks,
@@ -10,7 +10,7 @@ import {
   logErrorsAndTips,
   debugLog,
   uncloakNonMods,
-} from "@anymod/core";
+} = require("@anymod/core");
 
 (() => {
   if (!window.AnyMod || window.AnyMod.Script.ran) return;
