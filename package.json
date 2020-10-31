@@ -2,9 +2,13 @@
   "name": "@anymod/html",
   "version": "0.1.0",
   "description": "AnyMod HTML binding",
+  "source": "src/index.js",
   "main": "build/anymod-html.js",
+  "module": "build/anymod-html.module.js",
+  "unpkg": "build/anymod-html.umd.js",
   "scripts": {
     "test": "jest --watch",
+    "build": "microbundle",
     "pub": "npm version patch --force && npm publish"
   },
   "repository": {
@@ -20,13 +24,12 @@
   },
   "homepage": "https://github.com/anymod/anymod-html#readme",
   "devDependencies": {
-    "@anymod/core": "^0.1.13",
+    "@anymod/core": "^0.1.15",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "babel-jest": "^26.6.1",
     "babel-loader": "^8.1.0",
     "jest": "^26.6.1",
-    "webpack": "^5.3.2",
-    "webpack-cli": "^4.1.0"
+    "microbundle": "^0.12.4"
   }
 }

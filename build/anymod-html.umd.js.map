@@ -1,0 +1,1 @@
+{"version":3,"file":"anymod-html.umd.js","sources":["../src/index.js"],"sourcesContent":["require(\"./pre.js\");\nrequire(\"./post.js\");\n"],"names":["require"],"mappings":"6EAAAA,QAAQ,YACRA,QAAQ"}
