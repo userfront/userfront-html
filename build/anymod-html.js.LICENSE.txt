@@ -1,0 +1,4 @@
+/*!
+ * AnyMod library v2
+ * (c) 2017-2020 AnyMod
+ */
