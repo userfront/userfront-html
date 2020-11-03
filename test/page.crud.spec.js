@@ -11,18 +11,14 @@ describe("createOrReturnPage", () => {
     AnyMod.ApiUrl = "https://example.com/";
   });
 
-  it("should return a page if it is already set", (done) => {
+  it("should return a page if it is already set", async () => {
     window.history.pushState({}, "Basic page", "/basic");
-    createOrReturnPage()
-      .then((page) => {
-        expect(page.id).toBe(1);
-        expect(page.mods).toEqual({
-          basic: Test.factories.mods.basic,
-          assetboth: Test.factories.mods.assetboth,
-        });
-        done();
-      })
-      .catch((err) => done(err));
+    const page = await createOrReturnPage();
+    expect(page.id).toBe(1);
+    expect(page.mods).toEqual({
+      basic: Test.factories.mods.basic,
+      assetboth: Test.factories.mods.assetboth,
+    });
   });
 
   it("should find or create a new page if a new mod is found but the page does not match URL", async () => {
