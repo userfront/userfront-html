@@ -8,8 +8,8 @@ const {
   createOrReturnPage,
   checkPageAndUpdate,
   logErrorsAndTips,
-  debugLog,
   uncloakNonMods,
+  utils,
 } = require("@anymod/core");
 
 (() => {
@@ -35,7 +35,7 @@ const {
    * Create or update page, and place mods
    */
   AnyMod.addToWindowOnload(() => {
-    debugLog(["window.onload event"]);
+    utils.debugLog(["window.onload event"]);
 
     // Prepare all AnyMod placeholder els
     prepareAll();

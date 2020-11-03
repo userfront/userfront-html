@@ -1,16 +1,6 @@
 const { Test } = require("./config/test.utils.js");
-const nock = require("nock");
 require("../src/index.js");
-const { createOrReturnPage } = require("@anymod/core");
-// const core = require("../../anymod-core/src/index.js");
-// let { createOrReturnPage } = core.default;
-
-const url = "https://anymod-test.com/v2/";
-const nockScope = nock(url).defaultReplyHeaders({
-  "access-control-allow-origin": "*",
-  "access-control-allow-credentials": "true",
-  "access-control-allow-headers": "AnyMod-URL, AnyMod-Project",
-});
+const { createOrReturnPage, crud } = require("@anymod/core");
 
 describe("createOrReturnPage", () => {
   beforeAll(() => {
@@ -18,7 +8,7 @@ describe("createOrReturnPage", () => {
     document.head.innerHTML = Test.factories.document.headInnerHtml;
     AnyMod.Page.page = Test.factories.pages.basic;
     AnyMod.Opts.api = true;
-    AnyMod.ApiUrl = url;
+    AnyMod.ApiUrl = "https://example.com/";
   });
 
   it("should return a page if it is already set", (done) => {
@@ -42,21 +32,14 @@ describe("createOrReturnPage", () => {
       pathname: "/next-page.html",
       mods: { basic: Test.factories.mods.basic },
     };
-    // Set up mocks to return nextPage
-    nockScope.intercept("/page", "OPTIONS").reply(200);
-    nockScope.post("/page").reply(200, nextPage);
-
-    // Navigate the DOM to next page
+    crud.post = jest.fn(() => Promise.resolve(nextPage));
     window.history.pushState({}, "Next page", nextPage.pathname);
-
-    // Add a placeholder div and call createOrReturnPage
     let newMod = document.createElement("div");
     newMod.id = "anymod-basic";
     document.body.appendChild(newMod);
     const page = await createOrReturnPage();
-
-    // Assert that the page was returned correctly
-    expect(nockScope.isDone()).toBe(true);
-    expect(page).toEqual(nextPage);
+    expect(crud.post).toHaveBeenCalledWith(["basic"]);
+    expect(page.id).toBe(nextPage.id);
+    expect(page.pathname).toBe(nextPage.pathname);
   });
 });

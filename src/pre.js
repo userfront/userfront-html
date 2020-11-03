@@ -15,18 +15,18 @@ import Eev from "eev";
 import {
   alias,
   aliasLowerCase,
-  apiUrl,
   buildImage,
+  constants,
   modDataFromEid,
   loadScript,
   loadStyle,
   addStyleString,
   cloakString,
-  debugLog,
+  utils,
 } from "@anymod/core";
 
 (() => {
-  debugLog(["Start"]);
+  utils.debugLog(["Start"]);
 
   /**
    * Define the alias name (e.g. Userfront) based on amvartem
@@ -68,7 +68,7 @@ import {
   AnyMod.Promise = es6Promise;
   AnyMod.Event = new Eev();
   AnyMod.Script = { ran: false };
-  AnyMod.ApiUrl = AnyMod.ApiUrl || apiUrl;
+  AnyMod.ApiUrl = AnyMod.ApiUrl || constants.apiUrl;
 
   function mountedIds() {
     return Object.keys(this.mountedModObjs);
