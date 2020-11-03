@@ -9,6 +9,9 @@
  *    (e.g, if a page doesn't exist yet or if mods were added to a page)
  */
 
+import es6Promise from "es6-promise/auto";
+import Eev from "eev";
+
 import {
   alias,
   aliasLowerCase,
@@ -62,8 +65,8 @@ import {
   /*
    * AnyMod public variables
    */
-  AnyMod.Promise = window.Nsp_Promise;
-  AnyMod.Event = new window.Nsp_Eev();
+  AnyMod.Promise = es6Promise;
+  AnyMod.Event = new Eev();
   AnyMod.Script = { ran: false };
   AnyMod.ApiUrl = AnyMod.ApiUrl || apiUrl;
 

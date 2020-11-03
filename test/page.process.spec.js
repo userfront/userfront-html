@@ -2,13 +2,22 @@
  * Insert a page's CSS & JS assets into the DOM
  * Calls mountModAtEl on mods as their assets are finished loading.
  */
-import Test from "./config/test.utils.js";
-import { processPage, loadPageAssets } from "@anymod/core";
+const { Test } = require("./config/test.utils.js");
+const nock = require("nock");
+require("../src/index.js");
+// let { processPage, loadPageAssets } = require("@anymod/core");
+// const core = require("../../anymod-core/src/index.js");
+import * as core from "../../anymod-core/src/index.js";
+let { processPage, loadPageAssets } = core.default;
+
+const nockScope = nock("https://example.com")
+  .get(() => true)
+  .reply(200);
 
 let scriptTag, styleTag;
 const scope = {};
 
-xdescribe("processPage", () => {
+describe("processPage", () => {
   describe("with CSS & JS assets for 2 mods", () => {
     beforeAll(() => {
       Test.fns.defineAnyModPage(global);
@@ -19,10 +28,12 @@ xdescribe("processPage", () => {
       scriptTag = document.getElementById("AnyMod-script");
       styleTag = document.querySelector("[anymod-styles]");
       scope.modCb = jest.fn();
-      const tempFn = loadPageAssets;
-      loadPageAssets = (a) =>
-        tempFn(a, { scriptTag, styleTag, modCb: scope.modCb });
-      processPage(Test.factories.pages.basic);
+      const tempFn = core.default.loadPageAssets;
+      core.default.loadPageAssets = (a) => {
+        console.log("HERE");
+        return tempFn(a, { scriptTag, styleTag, modCb: scope.modCb });
+      };
+      core.default.processPage(Test.factories.pages.basic);
     });
 
     it("should load all CSS assets", () => {
@@ -35,15 +46,16 @@ xdescribe("processPage", () => {
     });
 
     it("should load all JS assets", () => {
-      expect(document.head.innerHTML).toContain(
+      expect(document.body.innerHTML).toContain(
         `<script defer="" src="${Test.factories.pages.basic.jsAssets[0]}"></script>`
       );
-      expect(document.head.innerHTML).toContain(
+      expect(document.body.innerHTML).toContain(
         `<script defer="" src="${Test.factories.pages.basic.jsAssets[1]}"></script>`
       );
     });
 
     it("should call mount on both mods once onload fires", () => {
+      core.default.loadPageAssets("foo");
       expect(scope.modCb).not.toHaveBeenCalled();
       Test.fns.fireAllOnloads(document);
       expect(scope.modCb.mock.calls).toContainEqual([
@@ -55,7 +67,7 @@ xdescribe("processPage", () => {
     });
   });
 
-  describe("without CSS or JS assets but with 2 mods", () => {
+  xdescribe("without CSS or JS assets but with 2 mods", () => {
     beforeAll(() => {
       Test.fns.defineAnyModPage(global);
       document.head.innerHTML = Test.factories.document.headInnerHtml;
@@ -82,7 +94,7 @@ xdescribe("processPage", () => {
     });
   });
 
-  describe("without any assets or mods", () => {
+  xdescribe("without any assets or mods", () => {
     beforeAll(() => {
       Test.fns.defineAnyModPage(global);
       document.head.innerHTML = Test.factories.document.headInnerHtml;
@@ -100,7 +112,7 @@ xdescribe("processPage", () => {
     });
   });
 
-  describe("with a CSS asset already in the head", () => {
+  xdescribe("with a CSS asset already in the head", () => {
     beforeAll(() => {
       Test.fns.defineAnyModPage(global);
       document.head.innerHTML =
@@ -148,7 +160,7 @@ xdescribe("processPage", () => {
     });
   });
 
-  describe("with a mod added after all assets have loaded", () => {
+  xdescribe("with a mod added after all assets have loaded", () => {
     beforeAll(() => {
       Test.fns.defineAnyModPage(global);
       scope.page = JSON.parse(JSON.stringify(Test.factories.pages.basic));

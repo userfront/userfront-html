@@ -1,3 +1,4 @@
+const Promise = require("es6-promise").Promise;
 const factories = require("../factories/index.js");
 if (jest) jest.useFakeTimers();
 
@@ -32,6 +33,7 @@ Test.fns.defineAnyModPage = (w) => {
       return Promise.resolve();
     },
   };
+  w.AnyModPageJs = {};
 };
 
 Test.fns.fireAllScriptOnloads = (document) => {
@@ -58,4 +60,4 @@ Test.fns.fireAllOnloads = (document) => {
 
 if (window) Test.fns.defineAnyModPage(global);
 
-export default Test;
+export { Test };
