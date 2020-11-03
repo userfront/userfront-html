@@ -11,8 +11,9 @@
 
 import es6Promise from "es6-promise/auto";
 import Eev from "eev";
+import * as core from "@anymod/core";
 
-import {
+const {
   alias,
   aliasLowerCase,
   buildImage,
@@ -23,7 +24,7 @@ import {
   addStyleString,
   cloakString,
   utils,
-} from "@anymod/core";
+} = core.default;
 
 (() => {
   utils.debugLog(["Start"]);

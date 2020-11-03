@@ -1,2 +1,2 @@
-require("./pre.js");
-require("./post.js");
+import "./pre.js";
+import "./post.js";

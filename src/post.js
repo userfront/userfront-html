@@ -1,3 +1,5 @@
+import * as core from "@anymod/core";
+
 const {
   prepareAll,
   processPage,
@@ -10,7 +12,7 @@ const {
   logErrorsAndTips,
   uncloakNonMods,
   utils,
-} = require("@anymod/core");
+} = core.default;
 
 (() => {
   if (!window.AnyMod || window.AnyMod.Script.ran) return;
