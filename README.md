@@ -1,1 +1,1 @@
-AnyMod HTML binding
+Userfront HTML binding

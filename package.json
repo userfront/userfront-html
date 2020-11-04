@@ -1,11 +1,11 @@
 {
-  "name": "@anymod/html",
-  "version": "0.1.2",
-  "description": "AnyMod HTML binding",
+  "name": "@userfront/html",
+  "version": "0.1.0",
+  "description": "Userfront HTML binding",
   "source": "src/index.js",
-  "main": "build/anymod-html.js",
-  "module": "build/anymod-html.module.js",
-  "unpkg": "build/anymod-html.umd.js",
+  "main": "build/userfront-html.js",
+  "module": "build/userfromt-html.module.js",
+  "unpkg": "build/userfront-html.umd.js",
   "scripts": {
     "test": "jest --watch",
     "build": "microbundle",
@@ -13,16 +13,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anymod/anymod-html.git"
+    "url": "git+https://github.com/userfront/userfront-html.git"
   },
   "keywords": [
-    "anymod"
+    "userfront"
   ],
-  "author": "AnyMod",
+  "author": "Userfront",
   "bugs": {
-    "url": "https://github.com/anymod/anymod-html/issues"
+    "url": "https://github.com/userfront/userfront-html/issues"
   },
-  "homepage": "https://github.com/anymod/anymod-html#readme",
+  "homepage": "https://github.com/userfront/userfront-html#readme",
   "devDependencies": {
     "@anymod/core": "^0.1.21",
     "@babel/core": "^7.12.3",
