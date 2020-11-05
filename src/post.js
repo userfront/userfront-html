@@ -27,13 +27,6 @@ const {
   delete AnyMod.rq;
 
   /*
-   * Legacy
-   */
-  AnyMod.Event.$on = AnyMod.Event.on;
-  AnyMod.Event.$off = AnyMod.Event.off;
-  AnyMod.Event.$emit = AnyMod.Event.emit;
-
-  /*
    * Create or update page, and place mods
    */
   AnyMod.addToWindowOnload(() => {

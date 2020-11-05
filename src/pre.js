@@ -9,18 +9,13 @@
  *    (e.g, if a page doesn't exist yet or if mods were added to a page)
  */
 
-import es6Promise from "es6-promise/auto";
-import Eev from "eev";
 import * as core from "@anymod/core";
 
 const {
   alias,
   aliasLowerCase,
-  buildImage,
   constants,
   modDataFromEid,
-  loadScript,
-  loadStyle,
   addStyleString,
   cloakString,
   utils,
@@ -49,7 +44,7 @@ const {
    */
   window.tempAnyMod = window.AnyMod || window.Anymod;
   window.AnyMod = (eid) => new AnyMod.init(eid);
-  window.Anymod = window.AnyMod; // Uppercase M as of 14 Jul 2019
+  console.log({ alias });
   if (alias !== "AnyMod") window[alias] = window.AnyMod;
   Object.keys(tempAnyMod).map((attr) => (AnyMod[attr] = tempAnyMod[attr]));
   delete window.tempAnyMod;
@@ -66,8 +61,6 @@ const {
   /*
    * AnyMod public variables
    */
-  AnyMod.Promise = es6Promise;
-  AnyMod.Event = new Eev();
   AnyMod.Script = { ran: false };
   AnyMod.ApiUrl = AnyMod.ApiUrl || constants.apiUrl;
 
@@ -133,13 +126,6 @@ const {
   AnyMod.Version = {
     currentVersion,
   };
-
-  /**
-   * AnyMod helper functions
-   */
-  AnyMod.buildImage = buildImage;
-  AnyMod.loadScript = loadScript;
-  AnyMod.loadStylesheet = loadStyle;
 
   AnyMod.addToWindowOnload = (fn) => {
     if (typeof fn !== "function") return;

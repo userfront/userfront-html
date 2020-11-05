@@ -1,22 +1,22 @@
-let document = {}
+let document = {};
 
 document.headInnerHtml = `
   <meta charset="utf-8">
   <meta name="referrer" content="none">
-  <title>AnyMod</title>
+  <title>Userfront</title>
 
-  <!-- AnyMod -->
-  <script defer src="https://cdn.anymod.com/v2"></script>
-  <script id="AnyMod-script">
+  <!-- Userfront -->
+  <script defer src="https://mod.userfront.com/v2"></script>
+  <script id="Userfront-script">
     (function (m,o,d,u,l,a,r,i,z,e) {
       u[m]={rq:[],ready:function(j){u[m].rq.push(j);},m:m,o:o,d:d,r:r};function j(s){return encodeURIComponent(btoa(s));}
       z=l.getElementById(m+'-'+a);r=u.location;e=[d+'/page/'+o+'/'+j(r.pathname)+'/'+j(r.host)+'?t='+Date.now(),d];
       e.map(function(w){i=l.createElement(a);i.defer=1;i.src=w;z.parentNode.insertBefore(i,z);});u.amvartem=m;
-    })('AnyMod','BASIC1','https://cdn.anymod.com/v2',window,document,'script',{});
+    })('Userfront','BASIC1','https://mod.userfront.com/v2',window,document,'script',{});
   </script>
-  <!-- /AnyMod -->
+  <!-- /Userfront -->
 
-  <style anymod-styles></style>
-`
+  <style userfront-styles></style>
+`;
 
-export { document }
+export { document };
