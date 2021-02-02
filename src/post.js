@@ -1,6 +1,7 @@
 import * as core from "@anymod/core";
 
 const {
+  alias,
   prepareAll,
   processPage,
   addToCallbacks,
@@ -15,12 +16,14 @@ const {
 } = core.default;
 
 (() => {
-  if (!window.AnyMod || window.AnyMod.Script.ran) return;
+  /**
+   * Return if already run
+   */
+  if (window.AnyMod && AnyMod.Script && AnyMod.Script.ran) return;
 
   /*
    * Public variables & methods that rely on AnyMod variables in pre
    */
-
   AnyMod.ready = ready;
   AnyMod.render = render;
   addToCallbacks(AnyMod.rq);
@@ -59,6 +62,11 @@ const {
         uncloakNonMods();
       });
   });
+
+  /**
+   * Set global window alias
+   */
+  if (alias !== "AnyMod") window[alias] = AnyMod;
 
   AnyMod.Script.ran = true;
 })();

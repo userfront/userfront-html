@@ -1,5 +1,5 @@
 /*!
- * AnyMod library v2
+ * AnyMod library v3
  * (c) 2017-2020 AnyMod
  */
 /*
@@ -12,7 +12,6 @@
 import * as core from "@anymod/core";
 
 const {
-  alias,
   aliasLowerCase,
   constants,
   modDataFromEid,
@@ -25,8 +24,7 @@ const {
   utils.debugLog(["Start"]);
 
   /**
-   * Define the alias name (e.g. Userfront) based on amvartem
-   * such that window.AnyMod holds same reference as window.{alias}
+   * Return if already run
    */
   if (window.AnyMod && AnyMod.Script && AnyMod.Script.ran) return;
 
@@ -44,8 +42,6 @@ const {
    */
   window.tempAnyMod = window.AnyMod || window.Anymod;
   window.AnyMod = (eid) => new AnyMod.init(eid);
-  console.log({ alias });
-  if (alias !== "AnyMod") window[alias] = window.AnyMod;
   Object.keys(tempAnyMod).map((attr) => (AnyMod[attr] = tempAnyMod[attr]));
   delete window.tempAnyMod;
 
