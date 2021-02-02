@@ -1,6 +1,6 @@
 /*!
  * AnyMod library v3
- * (c) 2017-2020 AnyMod
+ * (c) 2017-2021 AnyMod
  */
 /*
  * Script 2 has three primary responsibilities:
