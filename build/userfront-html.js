@@ -1,2 +1,2 @@
-require("@anymod/html");var e,o=(e=require("@userfront/core"))&&"object"==typeof e&&"default"in e?e.default:e;const n=["signup","login","logout","redirectIfLoggedIn","resetPassword","sendLoginLink","sendResetLink","accessToken","idToken"];try{n.map(e=>{"function"==typeof o[e]&&(window.AnyMod[e]=o[e])})}catch(e){console.log(e)}
+require("@anymod/html");var e,n=(e=require("@userfront/core"))&&"object"==typeof e&&"default"in e?e.default:e;const o=["init","addInitCallback","signup","login","logout","redirectIfLoggedIn","resetPassword","sendLoginLink","sendResetLink","accessToken","idToken"];try{o.map(e=>{"function"==typeof n[e]&&(window.AnyMod[e]=n[e])})}catch(e){console.log(e)}
 //# sourceMappingURL=userfront-html.js.map
