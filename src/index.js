@@ -6,6 +6,8 @@ import "@anymod/html";
 import Core from "@userfront/core";
 
 const coreMethods = [
+  "init",
+  "addInitCallback",
   "signup",
   "login",
   "logout",
