@@ -4,6 +4,7 @@ import "../src/index.js";
 describe("Userfront version", () => {
   it("should contain core methods", () => {
     const coreMethods = [
+      "init",
       "signup",
       "login",
       "logout",
