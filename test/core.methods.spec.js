@@ -1,5 +1,8 @@
 import Cookie from "js-cookie";
+import setup from "./config/alias.setup.js";
 import "../src/index.js";
+
+const { tenantId } = setup;
 
 describe("Userfront version", () => {
   it("should contain core methods", () => {
@@ -21,10 +24,8 @@ describe("Userfront version", () => {
   });
 
   it("should be able to access the methods on the DOM", () => {
-    const tenantId = "a1b2c3d4";
     const cookieValue = "foobarbaz";
     Cookie.set(`access.${tenantId}`, cookieValue);
-    window.AnyMod.init(tenantId);
     expect(window.AnyMod.accessToken()).toEqual(cookieValue);
   });
 });
