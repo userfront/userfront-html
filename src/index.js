@@ -16,6 +16,8 @@ const coreMethods = [
   "sendResetLink",
   "accessToken",
   "idToken",
+  "refresh",
+  "user",
 ];
 
 try {
