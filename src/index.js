@@ -1,8 +1,6 @@
 import "@anymod/html";
 import Core from "@userfront/core";
 
-console.log("Latest beta 2");
-
 /**
  * Decorate the Singleton with the public methods from @userfront/core
  */
