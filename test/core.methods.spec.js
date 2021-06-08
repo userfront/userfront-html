@@ -4,8 +4,8 @@ import "../src/index.js";
 
 const { tenantId } = setup;
 
-describe("Userfront version", () => {
-  it("should contain core methods", () => {
+describe("Userfront Core JS", () => {
+  it("methods should be present", () => {
     const coreMethods = [
       "init",
       "signup",

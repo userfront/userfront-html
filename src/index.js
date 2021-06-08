@@ -1,23 +1,24 @@
 import "@anymod/html";
 import Core from "@userfront/core";
 
+console.log("Latest beta");
+
 /**
  * Decorate the Singleton with the public methods from @userfront/core
  */
 const coreMethods = [
-  "init",
+  "accessToken",
   "addInitCallback",
-  "signup",
+  "idToken",
+  "init",
   "login",
   "logout",
   "redirectIfLoggedIn",
+  "refresh",
   "resetPassword",
   "sendLoginLink",
   "sendResetLink",
-  "accessToken",
-  "idToken",
-  "refresh",
-  "user",
+  "signup",
 ];
 
 try {
@@ -28,6 +29,21 @@ try {
   });
 } catch (error) {
   console.info("[Userfront] Problem assigning JS methods.");
+}
+
+/**
+ * Decorate the Singleton with the stores from @userfront/core
+ */
+const coreObjects = ["user"];
+
+try {
+  coreObjects.map((obj) => {
+    if (typeof Core[obj] === "object") {
+      window.AnyMod[obj] = Core[obj];
+    }
+  });
+} catch (error) {
+  console.info("[Userfront] Problem assigning JS objects.");
 }
 
 /**
