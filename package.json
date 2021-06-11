@@ -1,6 +1,6 @@
 {
   "name": "@userfront/html",
-  "version": "1.0.18-beta.2",
+  "version": "1.0.18",
   "description": "Userfront HTML binding",
   "source": "src/index.js",
   "main": "build/userfront-html.js",
