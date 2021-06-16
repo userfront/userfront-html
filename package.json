@@ -28,7 +28,7 @@
   "homepage": "https://github.com/userfront/userfront-html#readme",
   "dependencies": {
     "@anymod/html": "^3.0.22",
-    "@userfront/core": "^0.2.9"
+    "@userfront/core": "^0.2.10"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
