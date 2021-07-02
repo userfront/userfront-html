@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/userfront/userfront-html#readme",
   "dependencies": {
-    "@anymod/html": "^3.0.22",
+    "@anymod/html": "^3.0.23",
     "@userfront/core": "^0.2.13"
   },
   "devDependencies": {
