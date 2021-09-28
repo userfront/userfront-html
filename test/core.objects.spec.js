@@ -15,7 +15,7 @@ Cookies.set(`id.${tenantId}`, value, { sameSite: "Lax" });
 
 describe("Userfront Core JS", () => {
   it("objects should be present", () => {
-    const coreMethods = ["user"];
+    const coreMethods = ["user", "tokens"];
     coreMethods.map((method) => {
       expect(typeof window.AnyMod[method]).toEqual("object");
     });

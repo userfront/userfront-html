@@ -32,7 +32,7 @@ try {
 /**
  * Decorate the Singleton with the stores from @userfront/core
  */
-const coreObjects = ["user"];
+const coreObjects = ["user", "tokens"];
 
 try {
   coreObjects.map((obj) => {
