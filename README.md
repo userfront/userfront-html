@@ -1,3 +1,5 @@
+# ⚠️ Deprecated: new projects should use the Userfront Toolkit (npm: @userfront/toolkit)
+
 # Userfront HTML
 
 The Userfront HTML binding allows you to quickly add pre-built signup, login, and password reset forms to your website.
